@@ -1,0 +1,26 @@
+任務一：
+import json
+import csv
+json_data = '[{"name": "小明", "score": 85}, {"name": "小華", "score": 92}, 
+{"name": "小美", "score": 78}]'
+data = json.loads(json_data)
+with open('students.csv', 'w', newline='', encoding='utf-8-sig') as f:
+    writer = csv.DictWriter(f, fieldnames=["name", "score"])
+    writer.writeheader( )
+    writer.writerows(data)
+
+
+任務二：
+import csv
+def smart_reader(file_path):
+    try:
+        with open(file_path, 'r', encoding='utf-8') as f:
+            reader = csv.reader(f)
+            data = list(reader)
+            return len(data)
+    except FileNotFoundError:
+        print("找不到檔案")
+        return []
+    except Exception:
+        print("檔案讀取失敗")
+        return []

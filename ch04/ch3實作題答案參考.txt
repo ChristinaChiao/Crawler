@@ -1,0 +1,22 @@
+任務一：
+# 1. 去重
+df = df.drop_duplicates(subset=['訂單編號'])
+
+# 2. 補空值
+avg_val = df['金額'].mean( )
+df['金額'] = df['金額'].fillna(avg_val)
+
+# 3. 篩選
+result = df[(df['金額'] > 1000) & (df['狀態'] == '已出貨')]
+print(result)
+
+任務二：
+# 1. 轉時間
+df_sales['日期'] = pd.to_datetime(df_sales['日期'])
+
+# 2. 提月份
+df_sales['月份'] = df_sales['日期'].dt.month
+
+# 3. 分組統計
+monthly_total = df_sales.groupby('月份')['營收'].sum( )
+print(monthly_total)
