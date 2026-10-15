@@ -1,0 +1,8 @@
+import requests
+
+# 某些網站若不帶 User-Agent 會回傳 403
+url = "https://www.ptt.cc/bbs/index.html"
+res = requests.get(url)
+
+if res.status_code == 403:
+    print("糟了！被伺服器拒絕存取（403），可能需要偽裝 User-Agent。")
