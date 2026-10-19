@@ -13,4 +13,12 @@ html = """
 """
 soup = BeautifulSoup(html, 'html.parser')
 
+footer = soup.find(id="footer")
+print(footer.text)
+
+import re
+match = re.search(r"最後更新：(\d{4}-\d{2}-\d{2})", footer.text)
+if match:
+    print("最後更新日期(使用正則表達式)：" , match.group(1))
+
 

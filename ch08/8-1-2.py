@@ -8,3 +8,9 @@ html = """
 </tr>
 """
 
+soup = BeautifulSoup(html, "html.parser")
+tds = soup.find_all("td")
+for td in tds:
+    print(td.text)
+
+
