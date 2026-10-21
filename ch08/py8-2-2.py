@@ -1,19 +1,17 @@
 from bs4 import BeautifulSoup
 
-html = """
-<div id="content">
-    <h1 class="title">今日熱門商品</h1>
-    <ul class="item-list">
-        <div>
-            <li class="item hot">iPhone 15</li>
-            <li class="item">PS5 Slim</li>
-            <li class="item hot">RTX 4090</li>
-        </div>
-    </ul>
-    <p id="footer">最後更新：2026-04-22</p>
-</div>
-"""
-soup = BeautifulSoup(html, 'html.parser')
+# html = """
+# <div id="content">
+#     <h1 class="title">今日熱門商品</h1>
+#     <ul class="item-list">
+#         <li class="item hot">iPhone 15</li>
+#         <li class="item">PS5 Slim</li>
+#         <li class="item hot">RTX 4090</li>
+#     </ul>
+#     <p id="footer">最後更新：2026-04-22</p>
+# </div>
+# """
+# soup = BeautifulSoup(html, 'html.parser')
 
 # # 解析方式1
 # title = soup.select('h1')
@@ -32,7 +30,27 @@ soup = BeautifulSoup(html, 'html.parser')
 # for item in list_items:
 #     print(item.text)
 
+#-------------------------------------------------
 # 無法找到任何li，因為ul.item-list的直接子元素不是li，而是div
+from bs4 import BeautifulSoup
+
+html = """
+<div id="content">
+    <h1 class="title">今日熱門商品</h1>
+    <ul class="item-list">
+        <div>
+            <li class="item hot">iPhone 15</li>
+            <li class="item">PS5 Slim</li>
+            <li class="item hot">RTX 4090</li>
+        </div>
+    </ul>
+    <p id="footer">最後更新：2026-04-22</p>
+</div>
+"""
+soup = BeautifulSoup(html, 'html.parser')
+
 list_items = soup.select('ul.item-list > li')
 for item in list_items:
     print(item.text)
+    
+    

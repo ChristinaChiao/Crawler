@@ -1,0 +1,43 @@
+from bs4 import BeautifulSoup
+
+html_with_links = """
+<div class="menu">
+    <a href="/news">新聞</a>
+    <a href="/all/news">新聞2</a>
+    <a href="/news/new3">新聞3</a>
+    <a href="https://google.com" target="_blank">外部連結</a>
+    <a href="https://microsoft.com" target="_blank">外部連結</a>
+    <a href="https://apple.com" target="_blank">外部連結</a>
+    <a href="/about">關於我們</a>
+</div>
+"""
+soup = BeautifulSoup(html_with_links, 'html.parser')
+
+external = soup.select("a[target]")
+# print(external)
+
+# for a in external:
+#     print(a.text)
+#     print(a['href'])
+
+print("使用a[href='/news']")
+news = soup.select("a[href='/news']")
+for a in news:
+    # print(a.text)
+    print(a['href'])
+
+print()
+print("使用a[href^='/news']")
+news = soup.select("a[href^='/news']")
+for a in news:
+    # print(a.text)
+    print(a['href'])
+
+print()
+print("使用a[href*='/news']")
+news = soup.select("a[href*='/news']")
+for a in news:
+    # print(a.text)
+    print(a['href'])
+
+#任務1：請找出Task2.html中所有的<a>超連結
