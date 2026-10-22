@@ -1,9 +1,0 @@
-from bs4 import BeautifulSoup
-
-html = """
-<div class="info">
-    <p id="p1">僅有純文字</p>
-    <p id="p2">文字中有 <span>子標籤</span></p>
-</div>
-"""
-soup = BeautifulSoup(html, 'html.parser')

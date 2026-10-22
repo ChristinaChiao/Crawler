@@ -1,5 +1,0 @@
-from bs4 import BeautifulSoup
-
-html = '<a href="https://example.com" class="link" id="target">點我前往</a>'
-soup = BeautifulSoup(html, 'html.parser')
-a_tag = soup.select_one("#target")

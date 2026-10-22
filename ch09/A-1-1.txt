@@ -1,0 +1,11 @@
+import urllib.parse
+
+def generate_search_url(base_url, keyword):
+    # 使用 quote 將中文字轉換為 URL 編碼 (例如: %E6%96%B0%E8%81%9E)
+    encoded_keyword = urllib.parse.quote(keyword)
+    return f"{base_url}/search?q={encoded_keyword}"
+
+# 實測
+yahoo_base = "https://tw.news.yahoo.com"
+my_keyword = "3D列印"
+print(f"生成的網址：{generate_search_url(yahoo_base, my_keyword)}")

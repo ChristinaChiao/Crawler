@@ -32,3 +32,4 @@ print("熱門商品：")
 hot_items = soup.select("li.item.hot")
 for hot_item in hot_items:
     print(hot_item.text)
+
