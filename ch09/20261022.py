@@ -58,13 +58,15 @@ try:
     search_btn.click( )
     print("已送出查詢請求...")
     
-    wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "section.time-result-section.active-result")))
+    # 5. 確保 out 載入完成
+    out = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "section.time-result-section.active-result")))
     print("查詢結果已載入...")
-    
-    ticket = driver.find_element(By.CSS_SELECTOR, "section.time-result-section.active-result")
 
-    from_station = ticket.find_element(By.XPATH, ".//div[@class='from']").text
-    print(from_station)
+    # 6. 從 out 內部使用相對 XPath 抓取（注意開頭有小數點 .//）
+    from_station = out.find_element(By.XPATH, ".//div[@class='from']").text
+    to_station = out.find_element(By.XPATH, ".//div[@class='to']").text
+
+    print(f"From: {from_station}, To: {to_station}")
 
     input("請按下 Enter 鍵以結束程式...")
 except Exception as e:
