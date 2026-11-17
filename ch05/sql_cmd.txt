@@ -1,0 +1,14 @@
+CREATE TABLE mytable(_id INTEGER PRIMARY KEY, note TEXT NOT NULL, created INTEGER);
+sqlite> INSERT INTO mytable VALUES(1,'Python',1712300000);
+sqlite> INSERT INTO mytable VALUES(2,'Web Scraper',1712310000); 
+sqlite> INSERT INTO mytable VALUES(3,'sqlite3',1712320000);     
+sqlite> SELECT * FROM mytable;
+
+sqlite> UPDATE mytable SET note='Sqlite3' WHERE _id=3;
+sqlite> SELECT * FROM mytable;
+
+sqlite> INSERT INTO mytable VALUES(4,'HTML',1712400000);  
+sqlite> SELECT * FROM mytable;
+
+sqlite> DELETE FROM mytable WHERE _id=4;
+sqlite> SELECT * FROM mytable;
